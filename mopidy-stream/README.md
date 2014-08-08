@@ -15,7 +15,7 @@ $~ docker -t build mopidy-stream .
 ## Running the container
 
 ```
-docker run -e MOPIDY_USERNAME=spotifyUser42 -e MOPIDY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t mopidy-stream:latest
+docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t mopidy-stream:latest
 ```
 
 * Port 6600 provides the mpd interface

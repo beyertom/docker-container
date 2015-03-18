@@ -32,11 +32,10 @@ RUN apt-get -qq update
 RUN apt-get install -y mopidy mopidy-spotify
 
 ##########################################################################################
-# Install mopidy webclient "moped"
+# Install mopidy webclient "mopidy-musicbox"
 
-RUN apt-get install -y git
-RUN git clone https://github.com/woutervanwijk/Mopidy-MusicBox-Webclient.git /usr/local/src/mopidy-web
-RUN ln -s /usr/local/src/mopidy-web/webclient /etc/mopidy/www
+RUN apt-get install -y python-pip
+RUN pip install Mopidy-MusicBox-Webclient
 
 ##########################################################################################
 # Add configurations

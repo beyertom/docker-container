@@ -6,15 +6,21 @@ This solution pipes the output through liquidsoap which then provides a http str
 
 ## Setup
 
-```
+```bash
 $~ git clone https://github.com/schinken/docker-container.git
 $~ cd docker-container/mopidy-stream
 $~ docker build -t mopidy-stream .
 ```
 
+or pull it directly from the docker repository
+
+```bash
+docker pull schinken/mopidy-stream
+```
+
 ## Running the container
 
-```
+```bash
 docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t schinken/mopidy-stream:latest
 ```
 

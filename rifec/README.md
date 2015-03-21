@@ -6,15 +6,21 @@ rifec is a perl server for the eyefi cards. We have an EyeFi connect X2 in use i
 
 ## Setup
 
-```
+```bash
 $~ git clone https://github.com/schinken/docker-container.git
 $~ cd docker-container/rifec
 $~ docker -t build rifec .
 ```
 
+or pull it directly from the docker repositry
+
+```bash
+docker pull schinken/rifec
+```
+
 ## Running the container
 
-```
+```bash
 docker run -v /mnt/yourIncomingDirection/:/mnt/pictures -e MACADDR="CA-ME-RA-MA-CA-DD-RE-SS" -e UPLOADKEY="youruploadkey" -p 59278:59278 -t rifec:latest
 ```
 

@@ -15,7 +15,7 @@ RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 # Prepare ubuntu for apt-add etc
 
 RUN apt-get -qq update
-RUN apt-get install -y wget software-properties-common
+RUN apt-get install -y wget software-properties-common sudo
 
 ##########################################################################################
 # Install liquidsoap
@@ -32,7 +32,7 @@ RUN apt-get -qq update
 RUN apt-get install -y mopidy mopidy-spotify
 
 ##########################################################################################
-# Install mopidy webclient "mopidy-musicbox"
+# Install mopidy webclient "Mopidy-Iris"
 
 RUN apt-get install -y python-pip
 RUN pip install Mopidy-Iris

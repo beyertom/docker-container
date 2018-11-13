@@ -35,8 +35,7 @@ RUN apt-get install -y mopidy mopidy-spotify
 # Install mopidy webclient "mopidy-musicbox"
 
 RUN apt-get install -y python-pip
-RUN pip install Mopidy-Mopify
-RUN pip install Mopidy-MusicBox-Webclient
+RUN pip install Mopidy-Iris
 
 ##########################################################################################
 # Add configurations

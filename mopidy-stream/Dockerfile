@@ -24,7 +24,7 @@ RUN apt-get -qq update
 RUN apt-get install -y mopidy
 
 # Dont use mopidy-spotify from repository, use compiled version due to bug with playlists
-RUN git clone git@github.com:kingosticks/mopidy-spotify.git
+RUN git clone https://github.com/kingosticks/mopidy-spotify.git
 RUN cd mopidy-spotify
 RUN git checkout web_api_playlists
 RUN sudo python2.7 setup.py build install

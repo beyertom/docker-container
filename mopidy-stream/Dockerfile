@@ -1,25 +1,21 @@
 FROM phusion/baseimage:latest
-MAINTAINER Christopher Schirner <christopher@hackerspace-bamberg.de>
+MAINTAINER Thomas Beyer <beyer.thomas@gmail.com>
 
 ##########################################################################################
 # baseimage specific stuff
-
 ENV HOME /root
 
 ##########################################################################################
 # disable ssh
-
 RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 ##########################################################################################
 # Prepare ubuntu for apt-add etc
-
 RUN apt-get -qq update
 RUN apt-get install -y wget software-properties-common sudo git liquidsoap python-pip
 
 ##########################################################################################
 # Install mopidy
-
 RUN wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add -
 RUN wget -q -O /etc/apt/sources.list.d/mopidy.list http://apt.mopidy.com/mopidy.list
 RUN apt-get -qq update

@@ -11,23 +11,30 @@ RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 ##########################################################################################
 # Prepare ubuntu for apt-add and install mopidy
-RUN apt-get -qq update &&\
-    apt-get install -y wget software-properties-common sudo git liquidsoap python-pip python-cffi &&\
+RUN apt-get update && apt-get install -y \
+      wget \
+      software-properties-common \
+      sudo \
+      git \
+      liquidsoap \
+      python-pip \
+      python-cffi \
+      mpc \
+      nano &&\
     wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add - &&\
     wget -q -O /etc/apt/sources.list.d/mopidy.list http://apt.mopidy.com/mopidy.list &&\
     apt-get -qq update &&\
-    apt-get install -y mopidy mopidy-spotify
-
-# Dont use mopidy-spotify from repository, use compiled version due to bug with playlists
-RUN git clone https://github.com/kingosticks/mopidy-spotify.git &&\
-    cd mopidy-spotify &&\
-    git checkout "fix/web_api_playlists" &&\
-    sudo python2.7 setup.py build install
+    apt-get install -y \
+      mopidy \
+      python-spotify
 
 ##########################################################################################
-# Install mopidy webclient "Mopidy-Iris"
+# Dont use mopidy-spotify from repository, use self-compiled version due to bug with playlists
 RUN pip install --upgrade pip &&\
-    pip install Mopidy-Iris
+    git clone https://github.com/kingosticks/mopidy-spotify.git &&\
+    cd mopidy-spotify &&\
+    git checkout "fix/web_api_playlists" &&\
+    python2.7 setup.py build install
 
 ##########################################################################################
 # Add configurations
